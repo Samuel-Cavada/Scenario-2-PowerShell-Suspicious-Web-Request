@@ -57,7 +57,7 @@ powershell.exe -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri 'https://
 powershell.exe -ExecutionPolicy Bypass -File 'C:\programdata\eicar.ps1';
 ```
 
-![Environment Setup](assets/images/setup.jpg)
+
 
 ---
 
@@ -95,6 +95,8 @@ DeviceProcessEvents
 - Stop running query after alert is generated
 - Group alerts into one Incident per 24 hours
 
+![Entity Mapping Example](https://github.com/Samuel-Cavada/Scenario-2-PowerShell-Suspicious-Web-Request/blob/main/images/S2PSWR5.png?raw=true)
+
 ---
 
 ### ✅ Step 2: Trigger Alert
@@ -130,6 +132,7 @@ DeviceProcessEvents
 | order by TimeGenerated
 | project TimeGenerated, AccountName, DeviceName, FileName, ProcessCommandLine
 ```
+![MDE Isolation Option](https://github.com/Samuel-Cavada/Scenario-2-PowerShell-Suspicious-Web-Request/blob/main/images/S2PSWR12.png?raw=true)
 
 **Findings:**
 
@@ -142,6 +145,7 @@ DeviceProcessEvents
 - VM isolated using MDE
 - Anti-malware scan performed
 - Files removed and system returned to normal state
+![Image 16 - Policy Recommendation Screenshot](https://github.com/Samuel-Cavada/Scenario-2-PowerShell-Suspicious-Web-Request/blob/main/images/S2PSWR15.png?raw=true)
 
 **Post-Incident:**
 
@@ -149,9 +153,22 @@ DeviceProcessEvents
 - Scripts confirmed to have executed via Defender logs
 - Malware team reviewed scripts:
   - `portscan.ps1`: scanned internal IPs for open ports
+<p align="left">
+  <img src="https://github.com/Samuel-Cavada/Scenario-2-PowerShell-Suspicious-Web-Request/blob/main/images/S2PSWR8.png?raw=true" alt="Image 8 - Incident Overview in Threat Management" width="75%" />
+</p>
+  -   
   - `eicar.ps1`: created AV test file
+  <p align="left">
+  <img src="https://github.com/Samuel-Cavada/Scenario-2-PowerShell-Suspicious-Web-Request/blob/main/images/S2PSWR11.png?raw=true" alt="Image 11 - Script Execution Visibility" width="75%" />
+</p>
   - `exfiltratedata.ps1`: simulated data exfiltration to Azure Blob
+<p align="left">
+  <img src="https://github.com/Samuel-Cavada/Scenario-2-PowerShell-Suspicious-Web-Request/blob/main/images/S2PSWR9.png?raw=true" alt="Image 9 - Detailed Incident View" width="75%" />
+</p>
   - `pwncrypt.ps1`: simulated ransomware + ransom note creation
+<p align="left">
+  <img src="https://github.com/Samuel-Cavada/Scenario-2-PowerShell-Suspicious-Web-Request/blob/main/images/S2PSWR10.png?raw=true" alt="Image 10 - Investigation Timeline" width="75%" />
+</p>
 - User was retrained on cyber hygiene; KnowBe4 training package upgraded
 
 **Closure:**
@@ -159,7 +176,7 @@ DeviceProcessEvents
 - Incident marked **True Positive**
 - KQL queries and notes documented in Sentinel
 - Case closed
-
+![Image 19 - Incident Deletion Caution](https://github.com/Samuel-Cavada/Scenario-2-PowerShell-Suspicious-Web-Request/blob/main/images/S2PSWR18.png?raw=true)
 ---
 
 ## 📝 Timeline Summary and Findings
